@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 
 def compute_attention_scores(query, key, value, mask=None):
     """
@@ -67,4 +68,4 @@ def positional_encoding(seq_length, d_model):
     pos_encoding[:, 0::2] = np.sin(position * div_term)
     pos_encoding[:, 1::2] = np.cos(position * div_term)
 
-    return pos_encoding
+    return torch.FloatTensor(pos_encoding)
